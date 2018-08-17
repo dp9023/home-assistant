@@ -23,7 +23,7 @@ _LOGGER = logging.getLogger(__name__)
 # straight of signal in dBm
 ATTR_TAG_SIGNAL_STRAIGHT = 'signal_straight'
 # indicates if tag is out of range or not
-ATTR_TAG_OUT_OF_RANGE = 'out_of_range'
+ATTR_TAG_OUT_OF_RANGE = 'out_of_r1ange'
 # number in percents from max power of tag receiver
 ATTR_TAG_POWER_CONSUMPTION = 'power_consumption'
 
@@ -100,8 +100,8 @@ class WirelessTagPlatform:
                 config = self.make_push_notitication(name, binary_url, content)
                 configs.append(config)
 
-        content = ("{\"name\":\"{0}\",\"id\":{1},\"temp\":{2}," +
-                   "\"cap\":{3},\"lux\":{4}}")
+        content = ("{\"type":"sensor","name\":\"{0}\",\"id\":{1},\"temp\":{2}," +
+                   "\"cap\":{3}")
         update_url = self.update_callback_url
         update_config = self.make_push_notitication(
             'update', update_url, content)
